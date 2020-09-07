@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using SimpleStore.DB;
 
 namespace SimpleStore.Models
@@ -7,7 +8,6 @@ namespace SimpleStore.Models
     {
         public AuthenticateResponse(User user, string token)
         {
-            Id = user.Id;
             FirstName = user.FirstName;
             LastName = user.LastName;
             Username = user.UserName;
@@ -15,7 +15,6 @@ namespace SimpleStore.Models
             Token = token;
         }
 
-        public Guid Id { get; }
         public string FirstName { get;  }
         public string LastName { get;  }
         public string Username { get;  }
