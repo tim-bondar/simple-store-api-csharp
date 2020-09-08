@@ -89,6 +89,11 @@ namespace SimpleStore
                 options.AddPolicy(Policies.Admin, Policies.AdminPolicy());
                 options.AddPolicy(Policies.User, Policies.UserPolicy());
             });
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

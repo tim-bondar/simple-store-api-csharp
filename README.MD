@@ -12,7 +12,7 @@ Init DB - run `docker run -p 5432:5432 --name simple-store-db -e POSTGRES_PASSWO
 
 ### Run as docker image
 1) Run `docker build -t simple-store-api .`
-2) Run `docker run -d -p 8080:80 --link simple-store-db:simple-store-db --name simple-store-app simple-store-api`
+2) Run `docker run -d -p 8080:80 --link simple-store-db:simple-store-db --name simple-store-api simple-store-api`
 3) Navigate to swagger info page [http://localhost:8080/swagger](http://localhost:8080/swagger)
 
 ### Authentication
