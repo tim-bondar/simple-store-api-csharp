@@ -71,7 +71,7 @@ namespace SimpleStore.Helpers
 
             var items = new List<StoreItem>();
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 8; i++)
             {
                 items.Add(new StoreItem
                 {
