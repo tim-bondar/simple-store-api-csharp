@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SimpleStore.DB;
@@ -42,19 +41,11 @@ namespace SimpleStore.Controllers
             return Ok(await _service.Get(id));
         }
 
-        /* Example request body:
-         [
-            {
-                "path": "/title",
-                "value": "Test"
-            }
-         ]
-        */
         [Authorize(Policy = Policies.Admin)]
-        [HttpPatch("{id}")]
+        [HttpPut("{id}")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(StoreItem), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> Patch(Guid id, [FromBody] JsonPatchDocument<AddStoreItem> model)
+        public async Task<IActionResult> Put(Guid id, [FromBody] StoreItemModel model)
         {
             return Ok(await _service.Update(id, model));
         }
@@ -63,7 +54,7 @@ namespace SimpleStore.Controllers
         [HttpPost]
         [Produces("application/json")]
         [ProducesResponseType(typeof(StoreItem), (int)HttpStatusCode.Created)]
-        public async Task<IActionResult> Post([FromBody] AddStoreItem model)
+        public async Task<IActionResult> Post([FromBody] StoreItemModel model)
         {
             var item = await _service.Create(model);
             return CreatedAtAction(nameof(Get),

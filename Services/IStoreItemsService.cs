@@ -11,8 +11,8 @@ namespace SimpleStore.Services
     {
         Task<IEnumerable<StoreItem>> GetAllItems();
         Task<StoreItem> Get(Guid id);
-        Task<StoreItem> Update(Guid id, JsonPatchDocument<AddStoreItem> model);
-        Task<StoreItem> Create(AddStoreItem model);
+        Task<StoreItem> Update(Guid id, StoreItemModel model);
+        Task<StoreItem> Create(StoreItemModel model);
         Task Delete(Guid id);
     }
 }

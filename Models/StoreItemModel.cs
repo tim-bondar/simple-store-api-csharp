@@ -1,6 +1,6 @@
 ﻿namespace SimpleStore.Models
 {
-    public class AddStoreItem
+    public class StoreItemModel
     {
         public string Title { get; set; }
         public string Description { get; set; }
